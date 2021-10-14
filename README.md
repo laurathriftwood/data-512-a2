@@ -29,12 +29,14 @@ ORES API Documentation: https://ores.wikimedia.org/v3/#!/scoring/get_v3_scores_c
 ### Important notes about the data
 
 - There are 6 score categories for Wikipedia articles
--- FA    | Featured article
--- GA    | Good article
--- B     | B-class article
--- C     | C-class article
--- Start | Start-class article
--- Stub  | Stub-class article
+
+FA    | Featured article
+GA    | Good article
+B     | B-class article
+C     | C-class article
+Start | Start-class article
+Stub  | Stub-class article
+
 - This analysis is limited to English Wikipedia pages only
 - for each article (identified by rev_id), the ORES API returns a prediction probability for each of the six score categories. This analysis only uses the "prediction" which is the highest predicted score category.
 -  Where no prediction was available, the API returns an error. In this analysis, the return of an error was interpreted to be No_Score and was removed from the dataset. The list of these articles is available in the output file __wp_wpds_politicians_no_score.csv__
@@ -61,7 +63,7 @@ __wp_wpds_countries-no_match.csv__
 - Data (M)
 - Population
 - Sub_Region
-- 
+
 __wp_wpds_politicians_no_score.csv__
 - page
 - country
