@@ -30,12 +30,12 @@ ORES API Documentation: https://ores.wikimedia.org/v3/#!/scoring/get_v3_scores_c
 
 - There are 6 score categories for Wikipedia articles
 
-FA    | Featured article
-GA    | Good article
-B     | B-class article
-C     | C-class article
-Start | Start-class article
-Stub  | Stub-class article
+- FA    | Featured article
+- GA    | Good article
+- B     | B-class article
+- C     | C-class article
+- Start | Start-class article
+- Stub  | Stub-class article
 
 - This analysis is limited to English Wikipedia pages only
 - for each article (identified by rev_id), the ORES API returns a prediction probability for each of the six score categories. This analysis only uses the "prediction" which is the highest predicted score category.
