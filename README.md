@@ -15,7 +15,9 @@ This analysis consists of a series of tables that show:
 ### Source data and licenses
 
 The Wikipedia politicians by country dataset can be found on Figshare at https://figshare.com/articles/Untitled_Item/5513449
+
 The file was downloaded and unzipped to extract the data file called __page_data.csv__. 
+
 License: CC by 4.0 https://creativecommons.org/licenses/by/4.0/
 
 The population data is available in CSV format as __WPDS_2020_data.csv__ and is drawn from the world population data sheet published by the Population Reference Bureau at https://www.prb.org/international/indicator/population/table/
@@ -23,7 +25,9 @@ The population data is available in CSV format as __WPDS_2020_data.csv__ and is 
 ### API documentation
 
 ORES GitHub repository: https://github.com/wikimedia/ores
+
 ORES Documentation: https://www.mediawiki.org/wiki/ORES
+
 ORES API Documentation: https://ores.wikimedia.org/v3/#!/scoring/get_v3_scores_context_revid_model
 
 ### Important notes about the data
