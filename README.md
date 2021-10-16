@@ -10,7 +10,7 @@ I then perform an analysis of how the coverage of politicians on Wikipedia and t
 This analysis consists of a series of tables that show:
 - the countries with the greatest and least coverage of politicians on Wikipedia compared to their population.
 - the countries with the highest and lowest proportion of high quality articles about politicians.
-- a ranking of geographic regions by articles-per-person and proportion of high quality articles.
+- a ranking of geographic regions by total articles as a proportion of the country's population.
 
 ### Source data and licenses
 
