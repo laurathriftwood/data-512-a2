@@ -44,15 +44,15 @@ ORES API Documentation: https://ores.wikimedia.org/v3/#!/scoring/get_v3_scores_c
 |  Stub | Stub-class article  |
 
 - This analysis is limited to English Wikipedia pages only
-- for each article (identified by rev_id), the ORES API returns a prediction probability for each of the six score categories. This analysis only uses the "prediction" which is the highest predicted score category.
--  Where no prediction was available, the API returns an error. In this analysis, the return of an error was interpreted to be No_Score and was removed from the dataset. The list of these articles is available in the output file __wp_wpds_politicians_no_score.csv__
+- for each article (identified by _rev_id_), the ORES API returns a prediction probability for each of the six score categories. This analysis only uses the "prediction" which is the highest predicted score category.
+-  Where no prediction was available, the API returns an error. In this analysis, the return of an error was interpreted to be _No_Score_ and was removed from the dataset. The list of these articles is available in the output file __wp_wpds_politicians_no_score.csv__
 -  There is a subset of the data where the country names in the __page_data.csv__ and __WPDS_2020_data.csv__ do not match. In this analysis, these unmatched entries were removed from the dataset. The list of these entries is available in the output file __wp_wpds_countries-no_match.csv__. 
 
 ### Final output data files includes the following fields:
 
 #### __wp_wpds_politicians_by_country.csv__
 
-This output includes the final set of politician articles by country that having matching ORES quality predictions and matching population data from the WPDS_2020_data dataset.
+This output includes the final set of politician articles by country that having matching ORES quality predictions and matching population data from the __WPDS_2020_data__ dataset.
 
 |        Field        | Data Format | Description                                                                         |
 |:-------------------:|-------------|-------------------------------------------------------------------------------------|
@@ -64,7 +64,7 @@ This output includes the final set of politician articles by country that having
 
 #### __wp_wpds_countries-no_match.csv__
 
-This output includes all entries from the WPDS_2020_data population dataset without matching country names in the Wikipedia page_data dataset AND all entries from the Wikipedia page_data dataset for which no match could be found in the WPDS_2020_data population dataset. The first three fields contain entries from the page_data dataset and the remaining fields contain data from the WPDS_2020_data population dataset. 
+This output includes all entries from the __WPDS_2020_data__ population dataset without matching country names in the Wikipedia __page_data__ dataset AND all entries from the Wikipedia __page_data__ dataset for which no match could be found in the __WPDS_2020_data__ population dataset. The first three fields contain entries from the __page_data__ dataset and the remaining fields contain data from the __WPDS_2020_data__ population dataset. 
 
 |    Field   | Data Format | Description                                                                         |
 |:----------:|-------------|-------------------------------------------------------------------------------------|
@@ -82,7 +82,7 @@ This output includes all entries from the WPDS_2020_data population dataset with
 
 #### __wp_wpds_politicians_no_score.csv__
 
-This output contains a set of politician articles in the Wikipedia page_data dataset for which no quality score could be predicted when the rev_id was sent to the ORES system. 
+This output contains a set of politician articles in the Wikipedia __page_data__ dataset for which no quality score could be predicted when the _rev_id_ was sent to the ORES system. 
 
 |    Field   | Data Format | Description                                                                         |
 |:----------:|-------------|-------------------------------------------------------------------------------------|
