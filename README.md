@@ -30,12 +30,14 @@ ORES API Documentation: https://ores.wikimedia.org/v3/#!/scoring/get_v3_scores_c
 
 - There are 6 score categories for Wikipedia articles
 
-  - FA: Featured article
-  - GA: Good article
-  - B: B-class article
-  - C: C-class article
-  - Start: Start-class article
-  - Stub: Stub-class article
+| Score | Description         |
+|:-----:|---------------------|
+|   FA  | Featured article    |
+|   GA  | Good article        |
+|   B   | B-class article     |
+|   C   | C-class article     |
+| Start | Start-class article |
+|  Stub | Stub-class article  |
 
 - This analysis is limited to English Wikipedia pages only
 - for each article (identified by rev_id), the ORES API returns a prediction probability for each of the six score categories. This analysis only uses the "prediction" which is the highest predicted score category.
@@ -44,31 +46,46 @@ ORES API Documentation: https://ores.wikimedia.org/v3/#!/scoring/get_v3_scores_c
 
 ### Final output data files includes the following fields:
 
-__wp_wpds_politicians_by_country.csv__
-- country
-- article_name
-- revision_id
-- article_quality_est
-- population
+#### __wp_wpds_politicians_by_country.csv__
 
-__wp_wpds_countries-no_match.csv__
-- page
-- country
-- rev_id
-- prediction
-- FIPS
-- Name
-- Type
-- TimeFrame
-- Data (M)
-- Population
-- Sub_Region
+This output includes the final set of politician articles by country that having matching ORES quality predictions and matching population data from the WPDS_2020_data dataset.
 
-__wp_wpds_politicians_no_score.csv__
-- page
-- country
-- rev_id
-- prediction
+|        Field        | Data Format | Description                                                                         |
+|:-------------------:|-------------|-------------------------------------------------------------------------------------|
+|       country       | String      | Name of country associated with politician in the Wikipedia article                 |
+|     article_name    | String      | Name of Wikipedia politician article                                                |
+|     revision_id     | int         | 9-digit revision identifier for Wikipedia article used to retrieve ORES prediction  |
+| article_quality_est | String      | Estimated quality prediction returned from ORES                                     |
+|      population     | int         | population of country identified in country field                                   |
+
+#### __wp_wpds_countries-no_match.csv__
+
+This output includes all entries from the WPDS_2020_data population dataset without matching country names in the Wikipedia page_data dataset AND all entries from the Wikipedia page_data dataset for which no match could be found in the WPDS_2020_data population dataset. The first three fields contain entries from the page_data dataset and the remaining fields contain data from the WPDS_2020_data population dataset. 
+
+|    Field   | Data Format | Description                                                                         |
+|:----------:|-------------|-------------------------------------------------------------------------------------|
+|    page    | String      | Name of Wikipedia politician article                                                |
+|   country  | String      | Name of country associated with politician from Wikipedia  dataset                  |
+|   rev_id   | int         | 9-digit revision identifier for Wikipedia article used to retrieve ORES prediction  |
+| prediction | String      | Estimated quality prediction returned from ORES                                     |
+|    FIPS    | String      | Federal Information Processing Standards (FIPS) country code                        |
+|    Name    | String      | Name of country from World Population  dataset                                      |
+|    Type    | String      | Region type for each entry (e.g. World, Country, Sub-Region)                        |
+|  TimeFrame | YYYY        | 4 digit year representing the timeframe of the entry from World Population dataset  |
+|  Data (M)  | float       | population of country identified in Name field, represented in millions             |
+| Population | int         | population of country identified in Name field                                      |
+| Sub_Region | String      | Name of sub-region designated in World Population dataset                           |
+
+#### __wp_wpds_politicians_no_score.csv__
+
+This output contains a set of politician articles in the Wikipedia page_data dataset for which no quality score could be predicted when the rev_id was sent to the ORES system. 
+
+|    Field   | Data Format | Description                                                                         |
+|:----------:|-------------|-------------------------------------------------------------------------------------|
+|    page    | String      | Name of Wikipedia politician article                                                |
+|   country  | String      | Name of country associated with politician from Wikipedia dataset                   |
+|   rev_id   | int         | 9-digit revision identifier for Wikipedia article used to retrieve ORES prediction  |
+| prediction | String      | NameEstimated quality prediction returned from ORES                                 |
 
 ### Reflection 
 This reflection focuses on the findings from this analysis and the process through which those findings were reached to help understand the causes and consequences of biased data in large, complex data science projects. A copy of this reflection is included at the end of the notebook. 
